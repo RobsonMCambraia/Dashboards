@@ -39,7 +39,7 @@ Este é um projeto de análise de dados que utiliza as bibliotecas Streamlit, Pa
 
 ## Autor
 
-[Seu Nome]
+Robson Mendes Cambraia
 
 ## Licença
 
