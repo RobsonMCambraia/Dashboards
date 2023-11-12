@@ -18,5 +18,17 @@ col3, col4, col5 = st.columns(3)
 fig_date = px.bar(df_filtered, x="Date", y="Total", color="City", title="Faturamento por dia")
 col1.plotly_chart(fig_date)
 
-fig_date = px.bar(df_filtered, x="Date", y="Total", color="City", title="Faturamento por dia")
-col2.plotly_chart(fig_date)
+fig_prodts = px.bar(df_filtered, x="Date", y="Product line", 
+                  color="City", 
+                  title="Faturamento por tipo de produto",
+                  orientation="h")
+col2.plotly_chart(fig_prodts)
+
+city_total = df_filtered.groupby("City")[["Total"]].sum().reset_index()
+fig_filial = px.bar(city_total, x="City", y="Total", 
+                    title="Faturamento por filial")
+col3.plotly_chart(fig_filial)
+
+fig_kind = px.pie(df_filtered, values="Total", names="Payment",
+                  title="Faturamento por tipo de pagamento")
+col4.plotly_chart(fig_kind)
